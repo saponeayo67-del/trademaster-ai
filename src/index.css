@@ -1,0 +1,533 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-obsidian: #0A0A12;
+    --gold-bright: #FFD700;
+    --gold-deep: #FFAA00;
+    --neon-purple: #A855F7;
+    --neon-cyan: #00E5FF;
+    --support-green: #00FF88;
+    --resistance-red: #FF3B3B;
+  }
+
+  body {
+    background-color: #0A0A12;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ===========================
+   LUXURY DARK & GOLD SURFACES
+   =========================== */
+.luxury-bg {
+  background:
+    radial-gradient(circle at 12% 8%, rgba(168, 85, 247, 0.14), transparent 36%),
+    radial-gradient(circle at 88% 12%, rgba(0, 229, 255, 0.12), transparent 38%),
+    radial-gradient(circle at 50% 60%, rgba(255, 215, 0, 0.06), transparent 55%),
+    #0A0A12;
+}
+
+.luxury-card {
+  position: relative;
+  background: linear-gradient(155deg, rgba(18, 18, 32, 0.88) 0%, rgba(10, 10, 18, 0.94) 100%);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 215, 0, 0.34);
+  box-shadow:
+    0 12px 36px -12px rgba(0, 0, 0, 0.85),
+    0 0 22px -6px rgba(255, 215, 0, 0.14),
+    inset 0 1px 0 0 rgba(255, 215, 0, 0.22);
+}
+
+.luxury-card:hover {
+  border-color: rgba(255, 215, 0, 0.52);
+  box-shadow:
+    0 16px 40px -12px rgba(0, 0, 0, 0.9),
+    0 0 28px -4px rgba(255, 215, 0, 0.2),
+    inset 0 1px 0 0 rgba(255, 215, 0, 0.3);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF3A1 0%, #FFD700 45%, #FFAA00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gold-badge {
+  background: linear-gradient(135deg, #FFD700 0%, #FFAA00 100%);
+  color: #0A0A12;
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.45);
+}
+
+.btn-glow-gold {
+  transition: transform 0.2s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+.btn-glow-gold:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 22px rgba(255, 215, 0, 0.55), 0 0 40px rgba(255, 170, 0, 0.25);
+  filter: brightness(1.06);
+}
+
+.btn-glow-cyan {
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-glow-cyan:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.48);
+}
+
+.btn-glow-purple {
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+}
+.btn-glow-purple:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+}
+
+/* ===========================
+   EXISTING ROBOT BRAIN LOGO
+   =========================== */
+@keyframes robot-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes brain-pulse {
+  0%, 100% {
+    transform: scale(0.97);
+    opacity: 0.82;
+    filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.7)) drop-shadow(0 0 12px rgba(0, 229, 255, 0.45));
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.95)) drop-shadow(0 0 22px rgba(0, 229, 255, 0.85));
+  }
+}
+
+@keyframes robot-blink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  94%, 96% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes shadow-pulse {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scaleX(0.84);
+    opacity: 0.28;
+  }
+}
+
+.animate-robot-float {
+  animation: robot-float 3.2s ease-in-out infinite;
+}
+
+.animate-brain-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: brain-pulse 2.4s ease-in-out infinite;
+}
+
+.animate-robot-blink {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: robot-blink 4.2s ease-in-out infinite;
+}
+
+.animate-shadow-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: shadow-pulse 3.2s ease-in-out infinite;
+}
+
+/* ===========================
+   SIRI THE ROBOT ANIMATIONS
+   =========================== */
+@keyframes siri-antenna-blink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px #00E5FF) drop-shadow(0 0 16px #FFD700);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.75);
+    filter: drop-shadow(0 0 2px #00E5FF);
+  }
+}
+
+@keyframes siri-walk-bob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-4px) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-4px) rotate(2deg);
+  }
+}
+
+@keyframes siri-leg-left {
+  0%, 100% {
+    transform: rotate(-18deg);
+  }
+  50% {
+    transform: rotate(18deg);
+  }
+}
+
+@keyframes siri-leg-right {
+  0%, 100% {
+    transform: rotate(18deg);
+  }
+  50% {
+    transform: rotate(-18deg);
+  }
+}
+
+@keyframes siri-wave-arm {
+  0%, 100% {
+    transform: rotate(-12deg);
+  }
+  25% {
+    transform: rotate(-52deg);
+  }
+  50% {
+    transform: rotate(-22deg);
+  }
+  75% {
+    transform: rotate(-58deg);
+  }
+}
+
+@keyframes siri-jump {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  30% {
+    transform: translateY(-28px) scale(1.08);
+  }
+  55% {
+    transform: translateY(-4px) scale(0.95);
+  }
+  75% {
+    transform: translateY(-18px) scale(1.05);
+  }
+}
+
+@keyframes siri-dance {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translateY(-10px) rotate(-10deg) scale(1.06);
+  }
+  40% {
+    transform: translateY(0px) rotate(10deg) scale(1);
+  }
+  60% {
+    transform: translateY(-12px) rotate(-8deg) scale(1.08);
+  }
+  80% {
+    transform: translateY(0px) rotate(8deg) scale(1);
+  }
+}
+
+@keyframes siri-sad {
+  0%, 100% {
+    transform: translateY(2px) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(-8deg);
+  }
+}
+
+@keyframes siri-salto {
+  0% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translateY(-34px) rotate(120deg) scale(1.1);
+  }
+  55% {
+    transform: translateY(-38px) rotate(240deg) scale(1.1);
+  }
+  85% {
+    transform: translateY(-10px) rotate(350deg) scale(1.04);
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes siri-header-patrol {
+  0% {
+    left: 2%;
+  }
+  48% {
+    left: calc(100% - 48px);
+  }
+  50% {
+    left: calc(100% - 48px);
+  }
+  98% {
+    left: 2%;
+  }
+  100% {
+    left: 2%;
+  }
+}
+
+.animate-siri-antenna {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: siri-antenna-blink 1.1s ease-in-out infinite;
+}
+
+.animate-siri-walk {
+  animation: siri-walk-bob 0.65s ease-in-out infinite;
+}
+
+.animate-siri-leg-l {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: siri-leg-left 0.5s ease-in-out infinite;
+}
+
+.animate-siri-leg-r {
+  transform-box: fill-box;
+  transform-origin: top center;
+  animation: siri-leg-right 0.5s ease-in-out infinite;
+}
+
+.animate-siri-wave {
+  transform-box: fill-box;
+  transform-origin: top left;
+  animation: siri-wave-arm 1.1s ease-in-out infinite;
+}
+
+.animate-siri-jump {
+  animation: siri-jump 0.9s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.animate-siri-dance {
+  animation: siri-dance 0.85s ease-in-out infinite;
+}
+
+.animate-siri-sad {
+  animation: siri-sad 1.8s ease-in-out infinite;
+}
+
+.animate-siri-salto {
+  animation: siri-salto 0.95s cubic-bezier(0.34, 1.56, 0.64, 1) 1;
+}
+
+.animate-siri-header-patrol {
+  animation: siri-header-patrol 18s linear infinite;
+}
+
+/* ===========================
+   WIDGET, FOOTPRINTS, TICK, BUY/SELL
+   =========================== */
+@keyframes footprint-fade {
+  0% {
+    opacity: 0.95;
+    transform: scale(1) translateY(0);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.95));
+  }
+  70% {
+    opacity: 0.45;
+    transform: scale(0.92) translateY(1px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.75) translateY(2px);
+  }
+}
+
+.animate-footprint-2s {
+  animation: footprint-fade 2s ease-out forwards;
+}
+
+@keyframes gold-particle-fall {
+  0% {
+    transform: translateY(-12px) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.9;
+  }
+  85% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translateY(390px) translateX(18px) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+.animate-gold-particle {
+  animation: gold-particle-fall linear infinite;
+}
+
+@keyframes confetti-burst-fall {
+  0% {
+    transform: translateY(-20px) translateX(0px) rotate(0deg) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(360px) translateX(var(--confetti-drift, 35px)) rotate(540deg) scale(1);
+    opacity: 0;
+  }
+}
+
+.animate-confetti-fall {
+  animation: confetti-burst-fall 2.1s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+}
+
+@keyframes gold-tick-pulse {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+  }
+  35% {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 28px rgba(255, 215, 0, 1)) drop-shadow(0 0 45px rgba(255, 170, 0, 0.85));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.45));
+  }
+}
+
+.animate-gold-tick {
+  animation: gold-tick-pulse 0.65s ease-out;
+}
+
+@keyframes support-blink-3 {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #00FF88);
+  }
+  16%, 50%, 82% {
+    opacity: 0.2;
+    filter: drop-shadow(0 0 0px #00FF88);
+  }
+  33%, 66% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px #00FF88) drop-shadow(0 0 28px #FFD700);
+  }
+}
+
+.animate-support-blink-3 {
+  animation: support-blink-3 1.6s ease-in-out 1;
+}
+
+@keyframes btn-vibrate-glow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(-0.8px, 0.6px);
+  }
+  40% {
+    transform: translate(0.8px, -0.6px);
+  }
+  60% {
+    transform: translate(-0.6px, -0.5px);
+  }
+  80% {
+    transform: translate(0.6px, 0.5px);
+  }
+}
+
+.btn-buy-vibrant {
+  background: linear-gradient(135deg, #00FF88 0%, #10B981 55%, #00E5FF 100%);
+  color: #06130E;
+  box-shadow: 0 0 22px rgba(0, 255, 136, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  animation: btn-vibrate-glow 2.6s ease-in-out infinite;
+}
+.btn-buy-vibrant:hover {
+  box-shadow: 0 0 34px rgba(0, 255, 136, 0.85), 0 0 60px rgba(255, 215, 0, 0.35);
+  transform: scale(1.03);
+}
+
+.btn-sell-vibrant {
+  background: linear-gradient(135deg, #FF3B3B 0%, #E11D48 55%, #A855F7 100%);
+  color: #FFFFFF;
+  box-shadow: 0 0 22px rgba(255, 59, 59, 0.48), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  animation: btn-vibrate-glow 2.6s ease-in-out infinite 0.4s;
+}
+.btn-sell-vibrant:hover {
+  box-shadow: 0 0 34px rgba(255, 59, 59, 0.85), 0 0 60px rgba(168, 85, 247, 0.4);
+  transform: scale(1.03);
+}
+
+@keyframes xau-ticker-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-xau-marquee {
+  display: flex;
+  width: max-content;
+  animation: xau-ticker-scroll 26s linear infinite;
+}
+
+.animate-xau-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes candle-glow-pulse {
+  0%, 100% {
+    opacity: 0.45;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+  }
+  50% {
+    opacity: 0.95;
+    filter: drop-shadow(0 0 12px rgba(255, 215, 0, 0.85));
+  }
+}
+
+.animate-candle-glow {
+  animation: candle-glow-pulse 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

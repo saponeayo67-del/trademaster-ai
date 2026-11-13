@@ -1,0 +1,6 @@
+{
+  "name": "TRADEMASTER AI - ULTIMATE v6",
+  "description": "Le robot et coach de trading d'élite pour indices (US30, NAS100, GER40...) et XAUUSD (OR). Analyse de captures TradingView, détection SMC (BOS, CHoCH, OB, FVG), signaux précis et coaching sans concession.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
